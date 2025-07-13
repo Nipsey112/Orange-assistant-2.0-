@@ -1,0 +1,171 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Orange Dynasty Brand Colors */
+  --orange-dynasty: hsl(15, 100%, 60%);
+  --orange-light: hsl(18, 100%, 62%);
+  --orange-dark: hsl(12, 100%, 50%);
+  --accent-blue: hsl(213, 100%, 66%);
+  --green-accent: hsl(142, 71%, 45%);
+  --purple-accent: hsl(263, 70%, 50%);
+  --radius: 0.5rem;
+}
+
+/* Light Theme - Orange Dynasty Style */
+.light {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(15, 25%, 96%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(15, 20%, 90%);
+  --input: hsl(15, 20%, 95%);
+  --primary: var(--orange-dynasty);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(15, 25%, 96%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(15, 25%, 96%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: var(--orange-dynasty);
+
+  /* Light theme specific colors */
+  --surface: hsl(15, 25%, 98%);
+  --surface-light: hsl(15, 25%, 96%);
+  --surface-darker: hsl(15, 20%, 92%);
+  --chat-user-bg: var(--orange-dynasty);
+  --chat-assistant-bg: hsl(15, 25%, 96%);
+  --sidebar-bg: hsl(15, 25%, 98%);
+}
+
+/* Dark Theme - Orange Dynasty Style */
+.dark {
+  --background: hsl(0, 0%, 10.2%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(0, 0%, 17.6%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(0, 0%, 10.2%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(0, 0%, 10.2%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(0, 0%, 17.6%);
+  --input: hsl(0, 0%, 17.6%);
+  --primary: var(--orange-dynasty);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(0, 0%, 17.6%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 0%, 17.6%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: var(--orange-dynasty);
+
+  /* Dark theme specific colors */
+  --surface: hsl(0, 0%, 17.6%);
+  --surface-light: hsl(0, 0%, 22.7%);
+  --surface-darker: hsl(0, 0%, 12%);
+  --chat-user-bg: var(--orange-dynasty);
+  --chat-assistant-bg: hsl(0, 0%, 17.6%);
+  --sidebar-bg: hsl(0, 0%, 17.6%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* Custom Orange Dynasty Styles */
+.orange-gradient {
+  background: linear-gradient(135deg, var(--orange-dynasty), var(--orange-light));
+}
+
+.orange-glow {
+  box-shadow: 0 0 20px hsla(15, 100%, 60%, 0.3);
+}
+
+.chat-message-user {
+  background: var(--chat-user-bg);
+}
+
+.chat-message-assistant {
+  background: var(--chat-assistant-bg);
+  border: 1px solid var(--border);
+}
+
+.sidebar-bg {
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+}
+
+.surface-bg {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.surface-light-bg {
+  background: var(--surface-light);
+}
+
+.surface-darker-bg {
+  background: var(--surface-darker);
+}
+
+/* Theme-aware text colors */
+.text-primary {
+  color: var(--orange-dynasty);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+/* Scrollbar Styling */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--surface-light);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-dynasty);
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+/* Animation for typing indicator */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.typing-dot {
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.typing-dot:nth-child(2) { animation-delay: -0.16s; }
